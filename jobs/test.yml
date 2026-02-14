@@ -1,0 +1,13 @@
+## test相关任务
+
+## 单元测试
+.test:
+  script:
+    - eval "${TEST_SHELL}"
+  artifacts:
+    reports:
+      junit: ${JUNIT_REPORT_PATH}
+  rules:
+    - if: " $RUN_PIPELINE_TEST == 'no' "
+      when: never
+    - when: on_success
